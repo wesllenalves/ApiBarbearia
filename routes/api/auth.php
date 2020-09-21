@@ -21,7 +21,7 @@ Route::group([
     Route::group(['middleware' => 'jwt'], function () {
         Route::get('sair', 'AuthController@sair')->name('sair');
         Route::put('concluir', 'AuthController@completarCadastro')->name('completarCadastro');
-        Route::get('renovar', 'AuthController@renovarTokenJWT')->name('renovarTokenJWT');
+        Route::get('renovar', 'AuthController@refreshToken')->name('renovarTokenJWT');
         Route::put('alterar-senha', 'AuthController@alterarSenha')->name('alterarSenha');
         Route::get('me', 'AuthController@pegarUsuario')->name('pegarUsuario');
         /*

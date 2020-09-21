@@ -35,6 +35,12 @@ class AuthController extends Controller
         return $this->sucesso('Login efetuado com sucesso.', $dados);
     }
 
+    public function refreshToken()
+    {
+        $dados = $this->servico->refresh();
+        return $this->sucesso("Token renovado com sucesso." ,$dados);
+    }
+
     public function pegarUsuario()
     {
         return $this->sucesso("Dados do usuário." ,auth()->user());
