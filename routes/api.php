@@ -22,8 +22,5 @@ Route::group([
         return response()->json('OK');
     });
 
-    Route::get('url-assinada/contrato', 'UrlAssinadaController@downloadContrato')->name('signed.downloadContrato');
-    Route::post('callback/{hash}', 'CallbackController@salvar');
-
     include_routes(__DIR__.'/api/');
 });

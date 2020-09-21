@@ -3,7 +3,7 @@
 Route::group([
     'prefix' => 'usuario',
     'as' => 'usuario.',
-    'middleware' => ['jwt', 'usuario.ativo'],
+    'middleware' => ['jwt'],
 ], function () {
-    Route::put('{id}', 'UsuarioController@atualizarUsuario');
+    Route::get('{id}', 'UsuarioController@index');
 });
