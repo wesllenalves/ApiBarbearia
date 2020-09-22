@@ -22,9 +22,11 @@ class UsuarioService extends BaseService
     public function cadastrar($usuario)
     {
         $usuario = $this->repositorio->adicionar([
-            'name'  => $usuario->name,
-            'email' => $usuario->email,
-            'password' => bcrypt($usuario->password),
+            'name'      => $usuario->name,
+            'email'     => $usuario->email,
+            'password'  => bcrypt($usuario->password),
+            'avatar'    => $usuario->avatar,
+            'stars'     => $usuario->stars,
         ]);
 
         return $usuario;

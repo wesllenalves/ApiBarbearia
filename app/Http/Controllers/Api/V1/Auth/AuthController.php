@@ -21,9 +21,11 @@ class AuthController extends Controller
     public function cadastrar(Request $request)
     {
         $usuario = (Object)[
-            'name' => $request->get('name'),
-            'email' => $request->get('email'),
-            'password' => $request->get('password')
+            'name'      => $request->get('name'),
+            'email'     => $request->get('email'),
+            'password'  => $request->get('password'),
+            'avatar'    => $request->get('avatar'),
+            'stars'     => $request->get('stars'),
         ];
         $dados = $this->usuario->cadastrar($usuario);
         return $this->sucesso('Usuario cadastrado com sucesso.', $dados);

@@ -32,7 +32,7 @@ class Usuario extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'avatar', 'stars',
     ];
 
     /**
@@ -52,4 +52,9 @@ class Usuario extends Authenticatable implements JWTSubject
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function photos()
+    {
+        return $this->belongsToMany(Photos::class, 'photo_usuario', 'usuario_id', 'photo_id');
+    }
 }

@@ -29,6 +29,8 @@ class AuthService extends BaseService
                 return response()->json(['error' => 'Unauthorized'], 401);
             }
             $usuario = auth()->user();
+            $usuario = Usuario::find($usuario->id);
+            $usuario->photos;
 
             return $this->respondWithToken($token, $usuario);
 
