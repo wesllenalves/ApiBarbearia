@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\AuthService;
 use App\Services\UsuarioService;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EntrarRequest;
 use App\Http\Requests\CadastroRequest;
 
 class AuthController extends Controller
@@ -32,7 +33,7 @@ class AuthController extends Controller
         return $this->sucesso('Usuario cadastrado com sucesso.', $dados);
     }
 
-    public function entrar(Request $requisicao)
+    public function entrar(EntrarRequest $requisicao)
     {
         $dados = $this->servico->entrar($requisicao->get('email_cpf'), $requisicao->get('senha'));
         return $this->sucesso('Login efetuado com sucesso.', $dados);
