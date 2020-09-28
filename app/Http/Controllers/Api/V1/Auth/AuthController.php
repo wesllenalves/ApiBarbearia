@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\AuthService;
 use App\Services\UsuarioService;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CadastroRequest;
 
 class AuthController extends Controller
 {
@@ -18,7 +19,7 @@ class AuthController extends Controller
         $this->usuario = $usuario;
     }
 
-    public function cadastrar(Request $request)
+    public function cadastrar(CadastroRequest $request)
     {
         $usuario = (Object)[
             'name'      => $request->get('name'),
