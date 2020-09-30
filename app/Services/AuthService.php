@@ -26,7 +26,7 @@ class AuthService extends BaseService
             }
 
             if (! $token = auth()->attempt($credenciais)) {
-                return response()->json(['error' => 'Unauthorized'], 401);
+                throw new BusinessException("Credenciais inválidas", 401);
             }
             $usuario = auth()->user();
             $usuario = Usuario::find($usuario->id);
