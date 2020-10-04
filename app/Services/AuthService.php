@@ -53,7 +53,8 @@ class AuthService extends BaseService
 
     public function refresh()
     {
-        return $this->respondWithToken(auth()->refresh());
+        $usuario = auth()->user();
+        return $this->respondWithToken(auth()->refresh(), $usuario);
     }
 
     public function sair()
