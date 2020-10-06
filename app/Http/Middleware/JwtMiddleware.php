@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Exception;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use App\Exceptions\BusinessException;
 use Tymon\JWTAuth\Http\Middleware\BaseMiddleware;
 
 class JwtMiddleware extends BaseMiddleware
@@ -22,11 +23,11 @@ class JwtMiddleware extends BaseMiddleware
             $user = JWTAuth::parseToken()->authenticate();
         } catch (Exception $e) {
             if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenInvalidException){
-                return response()->json(['status' => 'Token is Invalid']);
+                 throw new BusinessException("Token is Invalid", 401);
             }else if ($e instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException){
-                return response()->json(['status' => 'Token is Expired']);
+                throw new BusinessException("Token is Expired", 401);
             }else{
-                return response()->json(['status' => 'Authorization Token not found']);
+                throw new BusinessException("Authorization Token not found", 401);
             }
         }
         return $next($request);
