@@ -25,10 +25,11 @@ class AuthService extends BaseService
 
             }
 
-            if (! $token = auth()->attempt($credenciais)) {
+            if (! $token = Auth::attempt(['email' => $email_cpf, 'password' => $password])) {
                 throw new BusinessException("Credenciais inválidas", 401);
             }
             $usuario = auth()->user();
+
             $usuario = Usuario::find($usuario->id);
             $usuario->photos;
 

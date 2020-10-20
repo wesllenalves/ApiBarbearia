@@ -57,4 +57,9 @@ class Usuario extends Authenticatable implements JWTSubject
     {
         return $this->belongsToMany(Photos::class, 'photo_usuario', 'usuario_id', 'photo_id');
     }
+
+    public function endereco()
+    {
+        return $this->hasOne(Endereco::class);
+    }
 }

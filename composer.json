@@ -13,6 +13,7 @@
         "fzaninotto/faker": "^1.9",
         "laravel/framework": "^6.18.35",
         "laravel/tinker": "^2.0",
+        "mjaschen/phpgeo": "^3.2",
         "paragonie/random_compat": "2.*",
         "tymon/jwt-auth": "^1.0"
     },

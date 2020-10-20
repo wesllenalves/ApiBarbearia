@@ -24,7 +24,7 @@ class UsuarioService extends BaseService
         $usuario = $this->repositorio->adicionar([
             'name'      => $usuario->name,
             'email'     => $usuario->email,
-            'password'  => bcrypt($usuario->password),
+            'password'  => Hash::make($usuario->password),
             'avatar'    => $usuario->avatar,
             'stars'     => $usuario->stars,
         ]);
